@@ -8,6 +8,33 @@ $skills = $_POST ['skill'];
 $domisili = $_POST ['domisili'];
 $email = $_POST ['email'];
 
+$nilai_skill = [
+    'HTML' => 10,
+    'CSS' => 10,
+    'JavaScript' => 20,
+    'RWD Bootstrap' => 20,
+    'PHP' => 30,
+    'Phyton' => 30,
+    'Java' => 50
+];
+
+$total_skor = 0;
+foreach ($skills as $value) {
+    $total_skor += $nilai_skill[$value];
+}
+
+$kategori_skill = '';
+if ($total_skor == 0){
+    $kategori_skill = 'Tidak Memadai';
+} else if($total_skor <= 40){
+    $kategori_skill = 'Kurang';
+} else if($total_skor <= 60){
+    $kategori_skill = 'Cukup';
+} else if($total_skor <= 100){
+    $kategori_skill = 'Baik';
+} else if($total_skor <= 150){
+    $kategori_skill = 'Sangat Baik';
+}
 
 echo "NIM: $nim";
 echo "<br> Nama : $nama"; 
